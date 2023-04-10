@@ -25,3 +25,21 @@ tun --key ~/.ssh/tunkey                 \
    is proxied back to the starting host and connected to `localhost:22`
 
 The `--via` command line options are applied in order and you can have as many of them as you like.  You must have at least one.
+
+## Tips
+
+When using this you may not want to run the tunneling through your login account on jump nodes. You should probably set up a dedicated user for tunneling. You can then limit what this account is allowed to do through the SSHD config.  
+
+Let's say we create a user `tun`.  You can then add some restrictions to what this user can do:
+
+```text
+# example of sshd config entry to neuter the tun user a bit.
+Match User tun
+  PasswordAuthentication no
+  AllowTcpForwarding yes
+  X11Forwarding no
+  AllowAgentForwarding no
+  ForceCommand /bin/false
+  Banner none
+  PrintLastLog no
+```
