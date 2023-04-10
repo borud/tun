@@ -1,6 +1,6 @@
 # tun - multi-hop reverse proxy
 
-`tun` is a multi-hope reverse ssh proxy. When it starts it connects to a remote host via a chain of SSH servers.  It then creates a listen port on the last server in the chain.  Whenever a connection is made to this listen port, the connection is proxied back to the originating host and connected to a *target*.
+`tun` is a multi-hop reverse ssh proxy. When it starts it connects to a remote host via a chain of SSH servers.  It then creates a listen port on the last server in the chain.  Whenever a connection is made to this listen port, the connection is proxied back to the originating host and connected to a *target*.
 
 ## Installing
 
