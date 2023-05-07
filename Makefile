@@ -5,7 +5,7 @@ build: tun
 tun:
 	@cd cmd/$@ && go build -o ../../bin/$@
 
-release: all
+release: test vet
 	@cd cmd/tun && GOOS=linux GOARCH=amd64 go build -ldflags=$(LDFLAGS) -o ../../bin/tun
 	@cd bin && zip tun.amd64-linux.zip tun && rm tun
 
