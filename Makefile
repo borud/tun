@@ -1,9 +1,15 @@
+ifeq ($(VERSION),)
+VERSION := $(shell git tag -l --sort=-version:refname | head -n 1 | cut -c 2-)
+endif
+
+LDFLAGS := "-X github.com/borud/tun/pkg/global.Version=$(VERSION)"
+
 all: lint vet test build
 
 build: tun
 
 tun:
-	@cd cmd/$@ && go build -o ../../bin/$@
+	@cd cmd/$@ && go build  -ldflags=$(LDFLAGS) -o ../../bin/$@
 
 release: test vet
 	@cd cmd/tun && GOOS=linux GOARCH=amd64 go build -ldflags=$(LDFLAGS) -o ../../bin/tun

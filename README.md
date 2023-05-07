@@ -4,6 +4,15 @@
 
 ## Installing
 
+You can install tun from using homebrew from the `borud/tools` tap.
+
+```shell
+brew tap borud/tools
+brew install tun
+```
+
+If you have Go installed:
+
 ```shell
 go install github.com/borud/tun/cmd/tun@latest
 ```
