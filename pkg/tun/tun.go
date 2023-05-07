@@ -1,3 +1,4 @@
+// Package tun contains the tunneling code.
 package tun
 
 import (

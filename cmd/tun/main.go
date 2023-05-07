@@ -1,3 +1,4 @@
+// Package main contains the executable main.
 package main
 
 import (

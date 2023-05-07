@@ -1,3 +1,4 @@
+// Package util contains things that don't fit anywhere else.
 package util
 
 import (
